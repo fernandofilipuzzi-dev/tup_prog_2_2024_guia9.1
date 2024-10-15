@@ -49,13 +49,17 @@ namespace Ejercicio1
         {
             try
             {
+                #region captura de datos del formulario principal
                 int dni = Convert.ToInt32(tbDNI.Text);
                 string nombre = tbApellidoNombres.Text;
                 string patente = tbPatente.Text;
                 DateTime fechaHoy = dtpFechaHoy.Value;
+                #endregion
 
+                #region agregar vtv y propietario
                 Propietario propietario = new Propietario(dni, nombre);
                 VTV vtv = ente.AgregarVTV(patente, propietario, fechaHoy);
+                #endregion
 
                 #region cargando cada verificacion
                 for (int idx = 0; idx < vtv.CantidadVerificaciones; idx++)
@@ -114,9 +118,21 @@ namespace Ejercicio1
                 tbPatente.Clear();
                 #endregion
             }
+            catch (DNINoValidoException ex)
+            {
+                MessageBox.Show(ex.Message,"Error en el DNI",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (EmailNoValidoException ex)
+            {
+                MessageBox.Show(ex.Message, "Error en el Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (PatenteNoValidoException ex)
+            {
+                MessageBox.Show(ex.Message, "Error en la patente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + Environment.NewLine +ex.StackTrace);
+                MessageBox.Show(ex.Message + Environment.NewLine +ex.StackTrace,"Error Interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         

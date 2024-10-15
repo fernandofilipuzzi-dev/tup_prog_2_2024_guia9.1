@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Ejercicio1.Models
 {
@@ -72,7 +73,11 @@ namespace Ejercicio1.Models
 
         public VTV(string patente, Propietario propietario, DateTime fecha)
         {
+            if (Regex.Match(patente, @"^[A-Z]{2}[0-9]{3}[A-Z]{2}$|^[A-Z]{3}[0-9]{3}$", RegexOptions.IgnoreCase).Success==false)
+                throw new PatenteNoValidoException($"Patente:{patente} formato no reconocido");
+
             Patente = patente;
+
             Propietario = propietario;
             Fecha = fecha;
 
@@ -103,6 +108,7 @@ namespace Ejercicio1.Models
 
             string fechaVencimiento =  FechaVencimiento> DateTime.MinValue ? $"- Vencimiento:{FechaVencimiento:dd/MM/yyyy}" : "";
             lineas[n] = $"Resultado:{Aprobacion} {fechaVencimiento}";
+
 
             return lineas;
         }

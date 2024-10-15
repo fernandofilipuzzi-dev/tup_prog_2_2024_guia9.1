@@ -4,6 +4,12 @@ namespace Ejercicio1.Models
 {
     abstract public class Evaluacion
     {
+
+        //public enum TipoAprobacion
+        //{
+        //    NoAprobacion = 0, Parcial, Aprobado
+        //}
+
         public string Nombre { get; private set; }
         public string Descripcion { get; private set; }
 

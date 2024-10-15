@@ -74,9 +74,12 @@
     <Compile Include="FormVer.Designer.cs">
       <DependentUpon>FormVer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DNINoValidoException.cs" />
+    <Compile Include="Models\EmailNoValidoException.cs" />
     <Compile Include="Models\Evaluacion.cs" />
     <Compile Include="Models\EvaluacionSimple.cs" />
     <Compile Include="Models\FiscalizadorVTV.cs" />
+    <Compile Include="Models\PatenteNoValidoException.cs" />
     <Compile Include="Models\TipoAprobacion.cs" />
     <Compile Include="Models\VTV.cs" />
     <Compile Include="Models\Propietario.cs" />
