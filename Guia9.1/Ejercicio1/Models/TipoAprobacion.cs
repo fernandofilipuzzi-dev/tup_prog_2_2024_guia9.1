@@ -1,5 +1,4 @@
-﻿
-namespace Ejercicio1.Models
+﻿namespace Ejercicio1.Models
 {
     public enum TipoAprobacion
     {

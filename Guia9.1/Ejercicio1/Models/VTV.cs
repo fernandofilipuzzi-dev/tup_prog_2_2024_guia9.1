@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-
 namespace Ejercicio1.Models
 {
     public class VTV : IComparable

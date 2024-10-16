@@ -12,21 +12,25 @@ namespace Ejercicio1
     {
 
         FiscalizadorVTV ente = new FiscalizadorVTV();
-            
+
+        
         public FormPrincipal()
         {
             InitializeComponent();
+        }
 
-            //inicializacion con algunos valores para depuración
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            #region ejemplos -  inicializacion con algunos valores para depuración
 
             VTV vtv;
-            vtv=ente.AgregarVTV("ABC123", new Propietario(45675654, "Marianela"), new DateTime(2020, 12, 5));
+            vtv = ente.AgregarVTV("ABC123", new Propietario(45675654, "Marianela"), new DateTime(2020, 12, 5));
             ((EvaluacionParametrica)vtv[0]).ValorMedido = 56;
             ((EvaluacionParametrica)vtv[1]).ValorMedido = 10;
             ((EvaluacionParametrica)vtv[2]).ValorMedido = 0.6;
             ((EvaluacionParametrica)vtv[3]).ValorMedido = 11000;
             ((EvaluacionParametrica)vtv[4]).ValorMedido = 12000;
-            ((EvaluacionSimple)vtv[5]).HaVerificado=true;
+            ((EvaluacionSimple)vtv[5]).HaVerificado = true;
 
             ente.AgregarVTV("ABC456", new Propietario(43675651, "Leandro"), new DateTime(2023, 3, 5));
             ((EvaluacionParametrica)vtv[0]).ValorMedido = 25;
@@ -43,6 +47,8 @@ namespace Ejercicio1
             ((EvaluacionParametrica)vtv[3]).ValorMedido = 11000;
             ((EvaluacionParametrica)vtv[4]).ValorMedido = 33000;
             ((EvaluacionSimple)vtv[5]).HaVerificado = true;
+
+            #endregion
         }
 
         private void btnIniciarCargarVTV_Click(object sender, EventArgs e)
